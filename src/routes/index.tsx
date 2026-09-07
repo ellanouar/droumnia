@@ -90,6 +90,34 @@ function Logo({ variant = "light" }: { variant?: "light" | "dark" }) {
   );
 }
 
+function WhatsAppIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M16.004 2.667c-7.363 0-13.333 5.97-13.333 13.333 0 2.353.615 4.61 1.782 6.605L2.667 29.333l6.89-1.807a13.26 13.26 0 0 0 6.447 1.64h.006c7.363 0 13.333-5.97 13.333-13.333S23.367 2.667 16.004 2.667Zm0 24.4h-.005a11.05 11.05 0 0 1-5.633-1.542l-.404-.24-4.09 1.073 1.092-3.987-.263-.409a11.02 11.02 0 0 1-1.696-5.895c0-6.104 4.966-11.07 11.07-11.07 2.957 0 5.737 1.153 7.827 3.246a10.99 10.99 0 0 1 3.24 7.827c0 6.104-4.966 11-11.038 11Zm6.06-8.26c-.332-.166-1.96-.967-2.264-1.077-.304-.111-.526-.166-.747.166-.222.333-.858 1.078-1.052 1.3-.194.222-.388.25-.72.083-.332-.166-1.402-.517-2.671-1.65-.987-.881-1.654-1.969-1.848-2.302-.194-.333-.02-.513.146-.679.15-.15.332-.388.499-.583.166-.194.221-.333.332-.555.111-.222.055-.416-.028-.583-.083-.166-.747-1.803-1.024-2.469-.27-.648-.544-.56-.747-.57l-.636-.011c-.222 0-.583.083-.888.416-.305.333-1.163 1.136-1.163 2.773s1.19 3.216 1.356 3.439c.166.222 2.343 3.578 5.677 5.017.793.343 1.412.548 1.894.701.796.253 1.52.217 2.093.132.638-.095 1.96-.802 2.237-1.577.277-.775.277-1.439.194-1.577-.083-.138-.305-.222-.637-.388Z" />
+    </svg>
+  );
+}
+
+function FloatingWhatsApp() {
+  return (
+    <a
+      href="https://wa.me/212612345678?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactez-nous sur WhatsApp"
+      className="group fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] shadow-[0_8px_24px_rgba(37,211,102,0.45)] transition-transform duration-500 hover:scale-110 animate-bounce-slow"
+    >
+      {/* Pulsing ring */}
+      <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" />
+
+      {/* 3D tilt wrapper */}
+      <span className="relative z-10 flex h-full w-full items-center justify-center rounded-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(15deg)_rotateX(-10deg)]">
+        <WhatsAppIcon className="h-8 w-8 text-white drop-shadow-md" />
+      </span>
+    </a>
+  );
+}
+
 function Index() {
   const [slide, setSlide] = useState(0);
   const [reveal, setReveal] = useState(50);
@@ -526,6 +554,9 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </div>
   );
 }
