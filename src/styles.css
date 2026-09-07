@@ -1,0 +1,373 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-olive: var(--olive);
+  --color-olive-deep: var(--olive-deep);
+  --color-cream: var(--cream);
+  --font-display: var(--font-display);
+  --font-script: var(--font-script);
+  --font-sans: var(--font-sans);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.008 95);
+  --foreground: oklch(0.27 0.02 120);
+  --card: oklch(0.995 0.004 95);
+  --card-foreground: oklch(0.27 0.02 120);
+  --popover: oklch(0.995 0.004 95);
+  --popover-foreground: oklch(0.27 0.02 120);
+  --primary: oklch(0.58 0.045 125);
+  --primary-foreground: oklch(0.985 0.008 95);
+  --secondary: oklch(0.955 0.012 95);
+  --secondary-foreground: oklch(0.35 0.03 125);
+  --muted: oklch(0.955 0.012 95);
+  --muted-foreground: oklch(0.52 0.015 110);
+  --accent: oklch(0.72 0.09 82);
+  --accent-foreground: oklch(0.27 0.02 120);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.915 0.012 95);
+  --input: oklch(0.915 0.012 95);
+  --ring: oklch(0.72 0.09 82);
+  --gold: oklch(0.72 0.09 82);
+  --gold-soft: oklch(0.86 0.05 85);
+  --olive: oklch(0.58 0.045 125);
+  --olive-deep: oklch(0.45 0.04 128);
+  --cream: oklch(0.985 0.008 95);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Italianno", cursive;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 20px 50px -30px oklch(0.45 0.04 128 / 0.45);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+  }
+}
+
+/* ---- 3D + glass utilities ---- */
+@utility scene-3d {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* =========================================
+   NOS SOINS — 3D FLOATING ANIMATION
+========================================= */
+
+.soin-card {
+  transform-style: preserve-3d;
+  animation: soinFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.soin-card:hover {
+  animation-play-state: paused;
+}
+
+@keyframes soinFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotateX(0deg) rotateZ(0deg);
+  }
+
+  25% {
+    transform: translateY(-7px) rotateX(1deg) rotateZ(-0.6deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotateX(-1deg) rotateZ(0.6deg);
+  }
+
+  75% {
+    transform: translateY(-5px) rotateX(0.7deg) rotateZ(-0.4deg);
+  }
+}
+
+/* Tooth gently moves forward/backward in 3D */
+
+.soin-tooth {
+  transform-style: preserve-3d;
+  animation: toothFloat 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes toothFloat {
+  0%,
+  100% {
+    transform: translateZ(30px) translateY(0) rotateY(0deg);
+  }
+
+  50% {
+    transform: translateZ(55px) translateY(-7px) rotateY(8deg);
+  }
+}
+
+/* Gold orbit around the tooth */
+
+.soin-orbit {
+  transform-style: preserve-3d;
+  animation: orbitSpin 6s linear infinite;
+}
+
+@keyframes orbitSpin {
+  0% {
+    transform: translateX(-50%) rotateX(65deg) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotateX(65deg) rotateZ(360deg);
+  }
+}
+
+/* Floating particles */
+
+.soin-particle {
+  animation: particleFloat 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(190, 150, 60, 0.5);
+}
+
+@keyframes particleFloat {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0) scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-12px) scale(1.3);
+  }
+}
+
+/* Gold glow */
+
+@keyframes goldPulse {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+/* Respect reduced-motion settings */
+
+@media (prefers-reduced-motion: reduce) {
+  .soin-card,
+  .soin-tooth,
+  .soin-orbit,
+  .soin-particle {
+    animation: none !important;
+  }
+}
+
+@utility tilt-3d {
+  transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+    translateZ(0) scale(var(--tz, 1));
+  transform-style: preserve-3d;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+@utility layer-3d {
+  transform: translateZ(var(--z, 40px));
+  transform-style: preserve-3d;
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--card) 55%, transparent);
+  backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid color-mix(in oklab, var(--gold) 22%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility glass-strong {
+  background: color-mix(in oklab, var(--card) 78%, transparent);
+  backdrop-filter: blur(28px) saturate(160%);
+}
+
+@utility hero-fade {
+  mask-image:
+    linear-gradient(to right, transparent 0%, rgb(0 0 0 / 0.35) 12%, rgb(0 0 0) 34%),
+    linear-gradient(to bottom, transparent 0%, rgb(0 0 0) 14%, rgb(0 0 0) 82%, transparent 100%);
+  mask-composite: intersect;
+}
+
+@utility blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.03);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  33% {
+    transform: translate3d(30px, -25px, 0);
+  }
+  66% {
+    transform: translate3d(-25px, 20px, 0);
+  }
+}
+
+@utility animate-float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@utility animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-soft,
+  .animate-drift {
+    animation: none;
+  }
+  .tilt-3d {
+    transform: none;
+  }
+}
